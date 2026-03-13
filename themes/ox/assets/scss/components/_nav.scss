@@ -14,26 +14,20 @@
   color: var(--ox-text-secondary);
   text-decoration: none;
   font-size: $font-size--1;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .ox-nav a::before {
-  content: "[";
+  content: ">";
   margin-right: 0.25rem;
-  color: var(--ox-text-muted);
-}
-
-.ox-nav a::after {
-  content: "]";
-  margin-left: 0.25rem;
-  color: var(--ox-text-muted);
+  color: var(--ox-accent-primary);
 }
 
 .ox-nav a:hover,
 .ox-nav a:focus-visible,
 .ox-nav a[aria-current='page'] {
   border-color: var(--ox-border-subtle);
-  color: var(--ox-accent-primary);
-  background: rgba(9, 24, 51, 0.7);
+  color: #d7d7d5;
+  background: rgba(9, 24, 51, 0.58);
 }

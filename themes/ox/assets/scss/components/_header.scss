@@ -3,7 +3,7 @@
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(0, 11, 30, 0.97);
+  background: rgba(0, 11, 30, 0.985);
 }
 
 .ox-header__inner {
@@ -22,7 +22,7 @@
   color: #d7d7d5;
   font-size: $font-size-0;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-decoration: none;
   text-transform: uppercase;
 }

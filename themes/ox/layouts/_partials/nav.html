@@ -5,8 +5,8 @@
         <li><a href="{{ .URL }}" {{ if or ($.IsMenuCurrent .Menu .) ($.HasMenuCurrent .Menu .) }}aria-current="page"{{ end }}>{{ .Name }}</a></li>
       {{ end }}
     {{ else }}
+      <li><a href="{{ "/" | relURL }}">Home</a></li>
       <li><a href="{{ "/posts/" | relURL }}">Posts</a></li>
-      <li><a href="{{ "/docs/" | relURL }}">Docs</a></li>
       <li><a href="{{ "/tags/" | relURL }}">Tags</a></li>
     {{ end }}
   </ul>

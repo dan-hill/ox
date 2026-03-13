@@ -2,7 +2,7 @@
   padding: $space-md $space-lg;
   border-top: 1px solid var(--ox-border-subtle);
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(9, 24, 51, 0.38);
+  background: rgba(9, 24, 51, 0.28);
 }
 
 .ox-content {
@@ -16,7 +16,7 @@
 
 .ox-content ul,
 .ox-content ol {
-  padding-left: 1.2rem;
+  padding-left: 1.1rem;
 }
 
 .ox-content li + li {
@@ -27,8 +27,8 @@
 .ox-callout,
 .ox-shortcode-panel {
   padding: $space-sm $space-md;
-  border-left: 2px solid var(--ox-accent-primary);
-  background: rgba(11, 41, 86, 0.24);
+  border-left: 1px solid var(--ox-accent-primary);
+  background: rgba(11, 41, 86, 0.18);
 }
 
 .ox-content table {
@@ -53,11 +53,57 @@
 
 .ox-badge {
   display: inline-block;
-  padding: 0.1rem 0.35rem;
+  padding: 0.06rem 0.25rem;
   border: 1px solid var(--ox-border-subtle);
   border-radius: 0;
   background: rgba(9, 24, 51, 0.75);
   color: #d7d7d5;
   font-size: $font-size--1;
   text-decoration: none;
+}
+
+.ox-route-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--ox-border-subtle);
+}
+
+.ox-route {
+  display: grid;
+  gap: $space-sm $space-lg;
+  padding: $space-md 0;
+  border-bottom: 1px solid var(--ox-border-subtle);
+}
+
+.ox-route__name a {
+  color: #d7d7d5;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ox-route__name a:hover,
+.ox-route__name a:focus-visible {
+  color: var(--ox-accent-primary);
+}
+
+.ox-route__note {
+  color: var(--ox-text-secondary);
+}
+
+.ox-route__meta {
+  color: var(--ox-text-muted);
+  font-size: $font-size--1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 56rem) {
+  .ox-route {
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr) minmax(5rem, auto);
+    align-items: start;
+  }
+
+  .ox-route__meta {
+    text-align: right;
+  }
 }

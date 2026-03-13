@@ -1,5 +1,5 @@
 html {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 body {
@@ -15,7 +15,7 @@ h5,
 h6 {
   color: #d7d7d5;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   line-height: $line-height-tight;
   text-transform: uppercase;
 }
@@ -34,8 +34,8 @@ th {
 
 a {
   color: var(--ox-link);
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.14em;
   transition: color $transition-fast, background-color $transition-fast, border-color $transition-fast;
 }
 
@@ -47,7 +47,7 @@ a:focus-visible {
 
 :focus-visible {
   outline: 1px solid var(--ox-focus-ring);
-  outline-offset: 0.12rem;
+  outline-offset: 0.08rem;
   box-shadow: var(--ox-focus-shadow);
 }
 
@@ -69,6 +69,6 @@ samp {
 }
 
 ::selection {
-  background: rgba(234, 0, 217, 0.28);
+  background: rgba(234, 0, 217, 0.24);
   color: #fff;
 }

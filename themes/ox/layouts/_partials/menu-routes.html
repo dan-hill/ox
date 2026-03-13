@@ -1,0 +1,9 @@
+<section class="ox-route-list">
+  {{ range site.Menus.main }}
+    <article class="ox-route">
+      <div class="ox-route__name"><a href="{{ .URL }}">{{ .Name }}</a></div>
+      <div class="ox-route__note">{{ with .Params.note }}{{ . }}{{ else }}route{{ end }}</div>
+      <div class="ox-route__meta">{{ if hasPrefix .URL "http" }}external{{ else }}local{{ end }}</div>
+    </article>
+  {{ end }}
+</section>

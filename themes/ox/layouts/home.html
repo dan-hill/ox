@@ -5,10 +5,14 @@
     <section class="ox-bulletin ox-content">{{ . }}</section>
   {{ end }}
 
-  {{ $featured := where .Site.RegularPages "Params.featured" true }}
-  {{ if gt (len $featured) 0 }}
-    {{ partial "card-grid.html" (dict "title" "Featured transmissions" "description" "Pinned blog and docs pages." "pages" $featured) }}
+  {{ $mode := site.Params.ox.mode | default "stream" }}
+  {{ if eq $mode "landing" }}
+    {{ partial "card-grid.html" (dict "title" "Routes" "description" "Primary exits from this node." "pages" slice) }}
+    {{ partial "menu-routes.html" . }}
+    {{ partial "card-grid.html" (dict "title" "Local dispatches" "description" "Pages and notes currently in this repo." "pages" .Site.RegularPages.ByDate.Reverse) }}
+  {{ else if eq $mode "directory" }}
+    {{ partial "card-grid.html" (dict "title" "Directory" "description" "Living notes, guides, and project records." "pages" .Site.RegularPages.ByLinkTitle) }}
   {{ else }}
-    {{ partial "card-grid.html" (dict "title" "Recent transmissions" "description" "Latest posts and docs pages." "pages" (first 12 .Site.RegularPages.ByDate.Reverse)) }}
+    {{ partial "card-grid.html" (dict "title" "Recent transmissions" "description" "Latest pages and notes." "pages" (first 12 .Site.RegularPages.ByDate.Reverse)) }}
   {{ end }}
 {{ end }}

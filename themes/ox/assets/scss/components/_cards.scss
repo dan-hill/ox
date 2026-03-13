@@ -14,7 +14,7 @@
 .ox-card__eyebrow {
   color: $accent-success;
   font-size: $font-size--1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -35,7 +35,7 @@
 .ox-card__meta {
   color: var(--ox-text-muted);
   font-size: $font-size--1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -45,7 +45,7 @@
 
 @media (min-width: 56rem) {
   .ox-card {
-    grid-template-columns: minmax(0, 6rem) minmax(0, 1fr) minmax(9rem, auto);
+    grid-template-columns: minmax(0, 5rem) minmax(0, 1fr) minmax(8rem, auto);
     align-items: start;
   }
 

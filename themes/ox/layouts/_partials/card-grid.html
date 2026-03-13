@@ -4,6 +4,7 @@
     {{ with .description }}<p class="u-muted small">{{ . }}</p>{{ end }}
   </header>
 {{ end }}
+{{ if .pages }}
 <section class="ox-card-grid">
   {{ range .pages }}
     <article class="ox-card">
@@ -26,3 +27,4 @@
     </article>
   {{ end }}
 </section>
+{{ end }}

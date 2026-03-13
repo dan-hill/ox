@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   gap: $space-sm;
-  margin-top: $space-lg;
+  margin-top: $space-md;
   padding-top: $space-md;
   border-top: 1px solid var(--ox-border-subtle);
 }
 
 .ox-pagination a,
 .ox-pagination span {
-  min-width: 8rem;
+  min-width: 6rem;
 }

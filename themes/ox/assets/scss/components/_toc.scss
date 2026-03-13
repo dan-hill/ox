@@ -1,14 +1,14 @@
 .ox-toc {
   position: sticky;
-  top: 3.25rem;
+  top: 2.75rem;
   padding: $space-md;
   border: 1px solid var(--ox-border-subtle);
-  background: rgba(9, 24, 51, 0.42);
+  background: rgba(9, 24, 51, 0.28);
 }
 
 .ox-toc h2 {
   font-size: $font-size--1;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 }
 
 .ox-toc nav ul {
