@@ -1,10 +1,21 @@
-{{ with .title }}<h2>{{ . }}</h2>{{ end }}
-{{ with .description }}<p class="u-muted">{{ . }}</p>{{ end }}
+{{ if or .title .description }}
+  <header class="ox-blockhead">
+    {{ with .title }}<h2>{{ . }}</h2>{{ end }}
+    {{ with .description }}<p class="u-muted small">{{ . }}</p>{{ end }}
+  </header>
+{{ end }}
 <section class="ox-card-grid">
   {{ range .pages }}
-    <article class="ox-card ox-panel ox-stack">
+    <article class="ox-card">
       <p class="ox-card__eyebrow">{{ with .Section }}{{ . }}{{ else }}{{ .Kind }}{{ end }}</p>
-      <h3 class="ox-card__title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+      <div class="ox-stack">
+        <h3 class="ox-card__title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+        {{ with .Summary }}
+          <div class="ox-card__summary">{{ . }}</div>
+        {{ else }}
+          {{ with .Description }}<p class="ox-card__summary">{{ . }}</p>{{ end }}
+        {{ end }}
+      </div>
       <div class="ox-card__meta">
         {{ if gt (len .Pages) 0 }}
           <span>{{ len .Pages }} entries</span>
@@ -12,11 +23,6 @@
           {{ with .Date }}<span>{{ .Format "2006-01-02" }}</span>{{ end }}
         {{ end }}
       </div>
-      {{ with .Summary }}
-        <p class="ox-card__summary">{{ . }}</p>
-      {{ else }}
-        {{ with .Description }}<p class="ox-card__summary">{{ . }}</p>{{ end }}
-      {{ end }}
     </article>
   {{ end }}
 </section>

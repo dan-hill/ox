@@ -7,20 +7,20 @@
 
 .ox-content :not(pre) > code,
 .ox-badge--code {
-  padding: 0.15rem 0.35rem;
+  padding: 0.08rem 0.25rem;
   border: 1px solid var(--ox-border-subtle);
-  border-radius: var(--ox-radius-sm);
-  background: rgba(9, 24, 51, 0.92);
+  border-radius: 0;
+  background: rgba(9, 24, 51, 0.94);
 }
 
 .highlight,
 pre {
   overflow-x: auto;
-  padding: $space-lg;
+  padding: $space-md;
   border: 1px solid var(--ox-border-subtle);
-  border-radius: var(--ox-radius-md);
+  border-radius: 0;
   background: var(--ox-code-bg);
-  box-shadow: inset 0 0 0 1px rgba(10, 189, 198, 0.04), 0 0 24px rgba(10, 189, 198, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(10, 189, 198, 0.04);
 }
 
 .chroma,

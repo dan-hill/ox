@@ -1,31 +1,55 @@
 .ox-card-grid {
   display: grid;
-  gap: $space-lg;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--ox-border-subtle);
 }
 
 .ox-card {
-  height: 100%;
-  padding: $space-lg;
+  display: grid;
+  gap: $space-sm $space-lg;
+  padding: $space-md 0;
+  border-bottom: 1px solid var(--ox-border-subtle);
 }
 
 .ox-card__eyebrow {
   color: $accent-success;
   font-size: $font-size--1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .ox-card__title {
-  margin-top: $space-xs;
-  margin-bottom: $space-sm;
+  margin: 0;
+}
+
+.ox-card__title a {
+  color: #d7d7d5;
+  text-decoration: none;
+}
+
+.ox-card__title a:hover,
+.ox-card__title a:focus-visible {
+  color: var(--ox-accent-primary);
 }
 
 .ox-card__meta {
   color: var(--ox-text-muted);
   font-size: $font-size--1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .ox-card__summary {
   color: var(--ox-text-secondary);
+}
+
+@media (min-width: 56rem) {
+  .ox-card {
+    grid-template-columns: minmax(0, 6rem) minmax(0, 1fr) minmax(9rem, auto);
+    align-items: start;
+  }
+
+  .ox-card__meta {
+    text-align: right;
+  }
 }

@@ -1,13 +1,14 @@
 .ox-footer {
   border-top: 1px solid var(--ox-border-subtle);
-  margin-top: $space-2xl;
+  margin-top: $space-xl;
 }
 
 .ox-footer__inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: $space-md;
-  padding: $space-lg 0 $space-2xl;
+  gap: $space-sm $space-lg;
+  padding: $space-md 0 $space-xl;
   color: var(--ox-text-muted);
+  font-size: $font-size--1;
 }

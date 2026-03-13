@@ -10,14 +10,30 @@
   display: inline-flex;
   align-items: center;
   padding: $space-xs $space-sm;
-  border-bottom: 2px solid transparent;
-  color: var(--ox-text-primary);
+  border: 1px solid transparent;
+  color: var(--ox-text-secondary);
   text-decoration: none;
+  font-size: $font-size--1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ox-nav a::before {
+  content: "[";
+  margin-right: 0.25rem;
+  color: var(--ox-text-muted);
+}
+
+.ox-nav a::after {
+  content: "]";
+  margin-left: 0.25rem;
+  color: var(--ox-text-muted);
 }
 
 .ox-nav a:hover,
 .ox-nav a:focus-visible,
 .ox-nav a[aria-current='page'] {
-  border-color: var(--ox-accent-primary);
+  border-color: var(--ox-border-subtle);
   color: var(--ox-accent-primary);
+  background: rgba(9, 24, 51, 0.7);
 }

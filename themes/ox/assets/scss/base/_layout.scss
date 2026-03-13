@@ -6,13 +6,13 @@
 
 .ox-main {
   flex: 1;
-  width: min(100% - 2rem, var(--ox-shell-width));
+  width: min(100% - 1.25rem, var(--ox-shell-width));
   margin-inline: auto;
-  padding: $space-xl 0 $space-3xl;
+  padding: $space-lg 0 $space-3xl;
 }
 
 .ox-container {
-  width: min(100% - 2rem, var(--ox-shell-width));
+  width: min(100% - 1.25rem, var(--ox-shell-width));
   margin-inline: auto;
 }
 
@@ -21,20 +21,37 @@
 }
 
 .ox-panel {
-  background: linear-gradient(180deg, rgba(11, 41, 86, 0.52), rgba(9, 24, 51, 0.9));
+  background: rgba(9, 24, 51, 0.72);
   border: 1px solid var(--ox-border-subtle);
   border-radius: var(--ox-radius-md);
   box-shadow: var(--ox-panel-shadow);
 }
 
+.ox-bulletin {
+  padding: $space-md $space-lg;
+  border: 1px solid var(--ox-border-subtle);
+  background: rgba(9, 24, 51, 0.5);
+}
+
+.ox-blockhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-sm $space-lg;
+  margin-bottom: $space-md;
+  padding-bottom: $space-sm;
+  border-bottom: 1px solid var(--ox-border-subtle);
+}
+
 .ox-page-grid {
   display: grid;
-  gap: $space-xl;
+  gap: $space-lg;
   align-items: start;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 72rem) {
   .ox-page-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem);
   }
 }

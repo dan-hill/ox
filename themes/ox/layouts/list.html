@@ -1,10 +1,10 @@
 {{ define "main" }}
   {{ partial "page-header.html" . }}
   {{ with .Content }}
-    <section class="ox-panel ox-content">{{ . }}</section>
+    <section class="ox-bulletin ox-content">{{ . }}</section>
   {{ end }}
   {{ $pages := .Pages.ByTitle }}
-  {{ $paginator := .Paginate $pages 9 }}
+  {{ $paginator := .Paginate $pages 18 }}
   {{ partial "card-grid.html" (dict "pages" $paginator.Pages) }}
   {{ partial "pagination.html" (dict "paginator" $paginator) }}
 {{ end }}

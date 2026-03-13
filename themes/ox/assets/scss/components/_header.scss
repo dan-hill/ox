@@ -3,21 +3,24 @@
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(0, 11, 30, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 11, 30, 0.97);
 }
 
 .ox-header__inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: $space-lg;
-  padding: $space-md 0;
+  gap: $space-sm $space-lg;
+  padding: $space-sm 0;
 }
 
 .ox-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: $space-xs;
   color: #d7d7d5;
-  font-size: $font-size-1;
+  font-size: $font-size-0;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-decoration: none;

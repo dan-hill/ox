@@ -1,6 +1,13 @@
+.ox-page-head {
+  padding: $space-md $space-lg;
+  border-top: 1px solid var(--ox-border-subtle);
+  border-bottom: 1px solid var(--ox-border-subtle);
+  background: rgba(9, 24, 51, 0.38);
+}
+
 .ox-content {
   max-width: var(--ox-content-width);
-  padding: $space-xl;
+  padding: $space-lg;
 }
 
 .ox-content > * + * {
@@ -9,15 +16,19 @@
 
 .ox-content ul,
 .ox-content ol {
-  padding-left: 1.4rem;
+  padding-left: 1.2rem;
+}
+
+.ox-content li + li {
+  margin-top: $space-xs;
 }
 
 .ox-content blockquote,
 .ox-callout,
 .ox-shortcode-panel {
-  padding: $space-md $space-lg;
-  border-left: 3px solid var(--ox-accent-primary);
-  background: rgba(11, 41, 86, 0.38);
+  padding: $space-sm $space-md;
+  border-left: 2px solid var(--ox-accent-primary);
+  background: rgba(11, 41, 86, 0.24);
 }
 
 .ox-content table {
@@ -30,14 +41,23 @@
   padding: $space-sm;
   border-bottom: 1px solid var(--ox-border-subtle);
   text-align: left;
+  vertical-align: top;
+}
+
+.ox-content hr {
+  height: 1px;
+  margin: $space-xl 0;
+  border: 0;
+  background: var(--ox-border-subtle);
 }
 
 .ox-badge {
   display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid var(--ox-border-strong);
-  border-radius: 999px;
-  background: rgba(10, 189, 198, 0.1);
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--ox-border-subtle);
+  border-radius: 0;
+  background: rgba(9, 24, 51, 0.75);
   color: #d7d7d5;
   font-size: $font-size--1;
+  text-decoration: none;
 }

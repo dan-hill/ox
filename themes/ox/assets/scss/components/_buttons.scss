@@ -4,24 +4,34 @@
   align-items: center;
   justify-content: center;
   gap: $space-xs;
-  padding: $space-sm $space-md;
-  border: 1px solid var(--ox-border-strong);
+  min-height: 2rem;
+  padding: $space-xs $space-sm;
+  border: 1px solid var(--ox-border-subtle);
   border-radius: var(--ox-radius-sm);
-  background: linear-gradient(180deg, rgba(19, 62, 124, 0.9), rgba(11, 41, 86, 0.95));
-  box-shadow: var(--ox-button-shadow);
-  color: #fff;
+  background: rgba(9, 24, 51, 0.6);
+  box-shadow: none;
+  color: var(--ox-text-primary);
   text-decoration: none;
-  transition: transform $transition-fast, box-shadow $transition-fast, border-color $transition-fast;
+  font-size: $font-size--1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color $transition-fast, color $transition-fast, border-color $transition-fast;
+}
+
+.ox-button::before {
+  content: ">";
+  color: var(--ox-accent-primary);
 }
 
 .ox-button:hover,
 .ox-button:focus-visible {
-  transform: translateY(-1px);
+  transform: none;
   border-color: var(--ox-accent-primary);
-  box-shadow: 0 0 0 1px var(--ox-accent-primary), 0 0 20px var(--ox-glow-strong);
+  background: rgba(19, 62, 124, 0.45);
+  box-shadow: none;
 }
 
 .ox-button--ghost {
   background: transparent;
-  color: var(--ox-text-primary);
+  color: var(--ox-text-secondary);
 }
