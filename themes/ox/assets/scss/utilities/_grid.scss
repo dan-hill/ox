@@ -1,0 +1,11 @@
+.u-grid-auto {
+  display: grid;
+  gap: $space-lg;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.u-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}

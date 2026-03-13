@@ -1,0 +1,9 @@
+{{ $theme := site.Data.ox.theme }}
+<header class="ox-header">
+  <div class="ox-header__inner ox-container">
+    <a class="ox-brand" href="{{ "/" | relURL }}">
+      {{ with $theme.name }}{{ . }}{{ else }}OX{{ end }}<span class="ox-brand__slash">//</span>{{ site.Title }}
+    </a>
+    {{ partial "nav.html" . }}
+  </div>
+</header>

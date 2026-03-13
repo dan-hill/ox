@@ -1,0 +1,2 @@
+{{ $tone := .Get "tone" | default "default" }}
+<span class="ox-badge ox-badge--{{ $tone }}">{{ .Inner | markdownify }}</span>

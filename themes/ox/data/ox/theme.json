@@ -1,0 +1,13 @@
+{
+  "name": "OX",
+  "tagline": "Mono everywhere. High neon always.",
+  "description": "Original Hugo-native cyberpunk theme for blog and docs-lite publishing.",
+  "supports": [
+    "home",
+    "list",
+    "single",
+    "taxonomy",
+    "term",
+    "docs-lite"
+  ]
+}

@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ partial "page-header.html" . }}
+  {{ with .Content }}
+    <section class="ox-panel ox-content">{{ . }}</section>
+  {{ end }}
+  {{ partial "card-grid.html" (dict "title" "Available terms" "pages" .Pages.ByTitle) }}
+{{ end }}

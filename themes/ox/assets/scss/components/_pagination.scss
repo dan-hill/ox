@@ -1,0 +1,11 @@
+.ox-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-md;
+  margin-top: $space-xl;
+}
+
+.ox-pagination a,
+.ox-pagination span {
+  min-width: 10rem;
+}

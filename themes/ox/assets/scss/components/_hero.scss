@@ -1,0 +1,41 @@
+.ox-hero {
+  position: relative;
+  overflow: hidden;
+  padding: $space-2xl;
+  margin-bottom: $space-2xl;
+}
+
+.ox-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--ox-grid-line);
+  background-size: 28px 28px;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.ox-hero > * {
+  position: relative;
+}
+
+.ox-hero__eyebrow {
+  display: inline-block;
+  margin-bottom: $space-sm;
+  color: $accent-success;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ox-hero__lede {
+  max-width: 60ch;
+  margin-top: $space-md;
+  color: var(--ox-text-secondary);
+}
+
+.ox-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  margin-top: $space-xl;
+}

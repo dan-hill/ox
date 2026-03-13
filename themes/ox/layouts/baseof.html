@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default `en-us` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="ox-shell">
+  <a class="u-sr-only" href="#main-content">Skip to content</a>
+  {{ partial "header.html" . }}
+  <main id="main-content" class="ox-main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+</html>

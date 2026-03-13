@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ partial "page-header.html" . }}
+  {{ $paginator := .Paginate (.Pages.ByDate.Reverse) 9 }}
+  {{ partial "card-grid.html" (dict "pages" $paginator.Pages) }}
+  {{ partial "pagination.html" (dict "paginator" $paginator) }}
+{{ end }}

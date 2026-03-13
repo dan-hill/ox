@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+  --ox-bg-canvas: #{$bg-canvas};
+  --ox-bg-panel: #{$bg-panel};
+  --ox-bg-panel-alt: #{$bg-panel-alt};
+  --ox-text-primary: #{$text-primary};
+  --ox-text-secondary: #{$text-secondary};
+  --ox-text-muted: #{$text-muted};
+  --ox-accent-primary: #{$accent-primary};
+  --ox-accent-secondary: #{$accent-secondary};
+  --ox-accent-danger: #{$accent-danger};
+  --ox-border-subtle: #{$border-subtle};
+  --ox-border-strong: #{$border-strong};
+  --ox-glow-soft: #{$glow-soft};
+  --ox-glow-strong: #{$glow-strong};
+  --ox-code-bg: #{$code-bg};
+  --ox-link: #{$link};
+  --ox-link-hover: #{$link-hover};
+  --ox-focus-ring: #{$focus-ring};
+  --ox-font-mono: #{$font-mono};
+  --ox-radius-sm: #{$radius-sm};
+  --ox-radius-md: #{$radius-md};
+  --ox-radius-lg: #{$radius-lg};
+  --ox-shell-width: #{$shell-width};
+  --ox-content-width: #{$content-width};
+  --ox-panel-shadow: #{$panel-shadow};
+  --ox-focus-shadow: #{$focus-shadow};
+  --ox-button-shadow: #{$button-shadow};
+  --ox-grid-line: linear-gradient(rgba(10, 189, 198, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(10, 189, 198, 0.08) 1px, transparent 1px);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(113, 28, 145, 0.22), transparent 32%),
+    radial-gradient(circle at 80% 0, rgba(234, 0, 217, 0.14), transparent 22%),
+    var(--ox-bg-canvas);
+  color: var(--ox-text-primary);
+  font-family: var(--ox-font-mono);
+}

@@ -1,0 +1,40 @@
+.ox-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.ox-main {
+  flex: 1;
+  width: min(100% - 2rem, var(--ox-shell-width));
+  margin-inline: auto;
+  padding: $space-xl 0 $space-3xl;
+}
+
+.ox-container {
+  width: min(100% - 2rem, var(--ox-shell-width));
+  margin-inline: auto;
+}
+
+.ox-stack > * + * {
+  margin-top: $space-lg;
+}
+
+.ox-panel {
+  background: linear-gradient(180deg, rgba(11, 41, 86, 0.52), rgba(9, 24, 51, 0.9));
+  border: 1px solid var(--ox-border-subtle);
+  border-radius: var(--ox-radius-md);
+  box-shadow: var(--ox-panel-shadow);
+}
+
+.ox-page-grid {
+  display: grid;
+  gap: $space-xl;
+  align-items: start;
+}
+
+@media (min-width: 64rem) {
+  .ox-page-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+  }
+}

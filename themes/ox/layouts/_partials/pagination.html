@@ -1,0 +1,8 @@
+{{ with .paginator }}
+  {{ if gt .TotalPages 1 }}
+    <nav class="ox-pagination" aria-label="Pagination">
+      {{ with .Prev }}<a class="ox-button ox-button--ghost" href="{{ .URL }}">← Newer</a>{{ else }}<span class="ox-badge">Start of feed</span>{{ end }}
+      {{ with .Next }}<a class="ox-button ox-button--ghost" href="{{ .URL }}">Older →</a>{{ else }}<span class="ox-badge">End of feed</span>{{ end }}
+    </nav>
+  {{ end }}
+{{ end }}

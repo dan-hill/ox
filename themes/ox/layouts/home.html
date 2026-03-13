@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ partial "hero.html" . }}
+
+  {{ with .Content }}
+    <section class="ox-panel ox-content">{{ . }}</section>
+  {{ end }}
+
+  {{ $featured := where .Site.RegularPages "Params.featured" true }}
+  {{ if gt (len $featured) 0 }}
+    {{ partial "card-grid.html" (dict "title" "Featured transmissions" "description" "Pinned blog and docs pages." "pages" $featured) }}
+  {{ else }}
+    {{ partial "card-grid.html" (dict "title" "Recent transmissions" "description" "Latest posts and docs pages." "pages" (first 6 .Site.RegularPages.ByDate.Reverse)) }}
+  {{ end }}
+{{ end }}

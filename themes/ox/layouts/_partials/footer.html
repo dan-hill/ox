@@ -1,0 +1,7 @@
+{{ $theme := site.Data.ox.theme }}
+<footer class="ox-footer">
+  <div class="ox-footer__inner ox-container">
+    <p>{{ with $theme.name }}{{ . }}{{ else }}OX{{ end }} // {{ with $theme.tagline }}{{ . }}{{ else }}Mono everywhere. High neon always.{{ end }}</p>
+    <p>No JavaScript required for navigation or content rendering.</p>
+  </div>
+</footer>

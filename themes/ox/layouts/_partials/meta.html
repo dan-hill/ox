@@ -1,0 +1,7 @@
+<div class="u-cluster u-muted small" aria-label="Page metadata">
+  {{ with .Date }}<span>{{ .Format "2006-01-02" }}</span>{{ end }}
+  {{ if gt .ReadingTime 0 }}<span>{{ .ReadingTime }} min read</span>{{ end }}
+  {{ range .Params.tags }}
+    <a class="ox-badge" href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">#{{ . }}</a>
+  {{ end }}
+</div>

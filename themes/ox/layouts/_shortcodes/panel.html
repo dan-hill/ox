@@ -1,0 +1,4 @@
+<div class="ox-shortcode-panel ox-panel ox-stack">
+  {{ with .Get "title" }}<strong>{{ . }}</strong>{{ end }}
+  <div>{{ .Inner | markdownify }}</div>
+</div>

@@ -1,0 +1,6 @@
+{{ if and (ne .Params.toc false) (in .TableOfContents "<ul>") }}
+  <aside class="ox-toc ox-panel">
+    <h2>On this page</h2>
+    <nav aria-label="Table of contents">{{ .TableOfContents }}</nav>
+  </aside>
+{{ end }}

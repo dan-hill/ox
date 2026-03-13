@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="ox-page-grid">
+    <article class="ox-stack">
+      {{ partial "page-header.html" . }}
+      <section class="ox-panel ox-content">{{ .Content }}</section>
+    </article>
+    {{ partial "toc.html" . }}
+  </div>
+{{ end }}

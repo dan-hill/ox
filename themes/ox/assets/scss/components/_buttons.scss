@@ -1,0 +1,27 @@
+.ox-button,
+.ox-content .ox-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  padding: $space-sm $space-md;
+  border: 1px solid var(--ox-border-strong);
+  border-radius: var(--ox-radius-sm);
+  background: linear-gradient(180deg, rgba(19, 62, 124, 0.9), rgba(11, 41, 86, 0.95));
+  box-shadow: var(--ox-button-shadow);
+  color: #fff;
+  text-decoration: none;
+  transition: transform $transition-fast, box-shadow $transition-fast, border-color $transition-fast;
+}
+
+.ox-button:hover,
+.ox-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--ox-accent-primary);
+  box-shadow: 0 0 0 1px var(--ox-accent-primary), 0 0 20px var(--ox-glow-strong);
+}
+
+.ox-button--ghost {
+  background: transparent;
+  color: var(--ox-text-primary);
+}

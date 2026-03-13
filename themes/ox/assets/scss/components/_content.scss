@@ -1,0 +1,43 @@
+.ox-content {
+  max-width: var(--ox-content-width);
+  padding: $space-xl;
+}
+
+.ox-content > * + * {
+  margin-top: $space-lg;
+}
+
+.ox-content ul,
+.ox-content ol {
+  padding-left: 1.4rem;
+}
+
+.ox-content blockquote,
+.ox-callout,
+.ox-shortcode-panel {
+  padding: $space-md $space-lg;
+  border-left: 3px solid var(--ox-accent-primary);
+  background: rgba(11, 41, 86, 0.38);
+}
+
+.ox-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ox-content th,
+.ox-content td {
+  padding: $space-sm;
+  border-bottom: 1px solid var(--ox-border-subtle);
+  text-align: left;
+}
+
+.ox-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--ox-border-strong);
+  border-radius: 999px;
+  background: rgba(10, 189, 198, 0.1);
+  color: #d7d7d5;
+  font-size: $font-size--1;
+}

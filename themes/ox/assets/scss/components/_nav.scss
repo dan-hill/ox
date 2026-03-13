@@ -1,0 +1,23 @@
+.ox-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+  list-style: none;
+  padding: 0;
+}
+
+.ox-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-xs $space-sm;
+  border-bottom: 2px solid transparent;
+  color: var(--ox-text-primary);
+  text-decoration: none;
+}
+
+.ox-nav a:hover,
+.ox-nav a:focus-visible,
+.ox-nav a[aria-current='page'] {
+  border-color: var(--ox-accent-primary);
+  color: var(--ox-accent-primary);
+}

@@ -1,0 +1,5 @@
+{{ $type := .Get "type" | default "note" }}
+<div class="ox-callout ox-callout--{{ $type }} ox-stack">
+  {{ with .Get "title" }}<strong>{{ . }}</strong>{{ end }}
+  <div>{{ .Inner | markdownify }}</div>
+</div>

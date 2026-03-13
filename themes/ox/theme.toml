@@ -1,0 +1,9 @@
+name = 'OX'
+description = 'High-neon, mono-first Hugo theme for blog and docs-lite publishing.'
+min_version = '0.146.0'
+demo = 'exampleSite'
+tags = ['cyberpunk', 'neon', 'mono', 'blog', 'docs']
+features = ['home hero', 'card lists', 'single pages', 'taxonomy', 'docs-lite', 'shortcodes']
+
+[author]
+  name = 'Augment Agent'

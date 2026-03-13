@@ -1,0 +1,16 @@
+{{ $hero := site.Params.ox.hero }}
+{{ $primaryLabel := "Browse dispatches" }}{{ $primaryURL := "/posts/" }}
+{{ $secondaryLabel := "Open docs" }}{{ $secondaryURL := "/docs/" }}
+{{ with $hero }}
+  {{ with .primary_label }}{{ $primaryLabel = . }}{{ end }}{{ with .primary_url }}{{ $primaryURL = . }}{{ end }}
+  {{ with .secondary_label }}{{ $secondaryLabel = . }}{{ end }}{{ with .secondary_url }}{{ $secondaryURL = . }}{{ end }}
+{{ end }}
+<section class="ox-hero ox-panel">
+  <p class="ox-hero__eyebrow">{{ with $hero.eyebrow }}{{ . }}{{ else }}Signal lock acquired{{ end }}</p>
+  <h1>{{ with $hero.title }}{{ . }}{{ else }}{{ site.Title }}{{ end }}</h1>
+  <p class="ox-hero__lede">{{ with $hero.description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ else }}High-neon mono publishing for blog and docs-lite content.{{ end }}{{ end }}</p>
+  <div class="ox-hero__actions">
+    <a class="ox-button" href="{{ $primaryURL | relURL }}">{{ $primaryLabel }}</a>
+    <a class="ox-button ox-button--ghost" href="{{ $secondaryURL | relURL }}">{{ $secondaryLabel }}</a>
+  </div>
+</section>

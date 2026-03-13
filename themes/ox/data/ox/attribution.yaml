@@ -1,0 +1,53 @@
+imports: []
+
+reference_only:
+  - source_path: kde/cyberpunk-neon.colors
+    original_filename: cyberpunk-neon.colors
+    purpose: Canonical background, panel, accent, and status-color seed.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: resources/oomox/colors/cyberpunk-neon
+    original_filename: cyberpunk-neon
+    purpose: Compact token seed for semantic color mapping.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: terminal/terminal-palette
+    original_filename: terminal-palette
+    purpose: Code and terminal hue reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: CSS/discord/base.css
+    original_filename: base.css
+    purpose: Border and semantic-token naming reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: CSS/startpage-cyberpunk-neon.css
+    original_filename: startpage-cyberpunk-neon.css
+    purpose: Hero, nav, footer, and landing-page interaction reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: CSS/mastodon-cyberpunk-neon.css
+    original_filename: mastodon-cyberpunk-neon.css
+    purpose: Panel, card, modal, and control-state reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: CSS/tweetdeck-cyberpunk-neon.css
+    original_filename: tweetdeck-cyberpunk-neon.css
+    purpose: Button, focus, and layout-state reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: sway/waybar/style.css
+    original_filename: style.css
+    purpose: Segmented mono rhythm and compact UI block reference.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: terminal-apps/vim/cyberpunk-neon.vim
+    original_filename: cyberpunk-neon.vim
+    purpose: Syntax-highlight tone mapping.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.
+  - source_path: resources/screenshots/screenshot-1.png
+    original_filename: screenshot-1.png
+    purpose: Moodboard reference only.
+    modified_unmodified: reference-only
+    attribution_license_note: Upstream Roboron3042/Cyberpunk-Neon, CC-BY-SA 4.0; not copied into OX.

@@ -1,0 +1,10 @@
+<header class="ox-panel u-panel-pad ox-stack">
+  {{ with .Section }}<p class="ox-card__eyebrow">{{ . }}</p>{{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}
+    <p class="u-muted">{{ . }}</p>
+  {{ else }}
+    {{ with .Summary }}<p class="u-muted">{{ . }}</p>{{ end }}
+  {{ end }}
+  {{ partial "meta.html" . }}
+</header>

@@ -1,0 +1,50 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'OX Example Site'
+theme = 'ox'
+enableRobotsTXT = true
+summaryLength = 24
+
+[pagination]
+pagerSize = 6
+
+[taxonomies]
+tag = 'tags'
+category = 'categories'
+
+[markup]
+  [markup.highlight]
+  noClasses = false
+  lineNos = true
+  [markup.tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
+
+[params]
+description = 'High-neon mono Hugo theme demo for blog and docs-lite content.'
+
+  [params.ox]
+    [params.ox.hero]
+    eyebrow = 'Signal lock acquired'
+    title = 'OX // Cyberpunk-neon Hugo'
+    description = 'Original Hugo-native theme architecture with mono typography, layered panels, sharp borders, and zero-JS core navigation.'
+    primary_label = 'Browse dispatches'
+    primary_url = '/posts/'
+    secondary_label = 'Open docs'
+    secondary_url = '/docs/'
+
+[[menu.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 10
+
+[[menu.main]]
+name = 'Docs'
+pageRef = '/docs'
+weight = 20
+
+[[menu.main]]
+name = 'Tags'
+pageRef = '/tags'
+weight = 30
