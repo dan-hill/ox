@@ -12,7 +12,7 @@
 }
 
 .ox-card__eyebrow {
-  color: $accent-success;
+  color: $accent-secondary;
   font-size: $font-size--1;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -23,8 +23,7 @@
 }
 
 .ox-card__title a {
-  color: #d7d7d5;
-  text-decoration: none;
+  color: #f3f3f3;
 }
 
 .ox-card__title a:hover,

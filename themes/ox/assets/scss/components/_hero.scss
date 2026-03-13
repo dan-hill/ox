@@ -1,11 +1,10 @@
 .ox-hero {
   display: grid;
   gap: $space-sm;
-  padding: $space-md $space-lg;
+  padding: $space-md 0;
   margin-bottom: $space-lg;
-  border-top: 1px solid var(--ox-border-subtle);
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(9, 24, 51, 0.28);
+  background: transparent;
 }
 
 .ox-hero__masthead {
@@ -15,13 +14,13 @@
 
 .ox-hero__eyebrow {
   display: inline-block;
-  color: $accent-success;
+  color: $accent-secondary;
   font-size: $font-size--1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .ox-hero__lede {
-  max-width: 68ch;
+  max-width: 72ch;
   color: var(--ox-text-secondary);
 }

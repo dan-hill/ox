@@ -3,15 +3,12 @@
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(0, 11, 30, 0.985);
+  background: rgba(17, 17, 17, 0.985);
 }
 
 .ox-header__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: $space-sm $space-lg;
+  display: grid;
+  gap: $space-sm;
   padding: $space-sm 0;
 }
 
@@ -19,7 +16,7 @@
   display: inline-flex;
   align-items: baseline;
   gap: $space-xs;
-  color: #d7d7d5;
+  color: #f3f3f3;
   font-size: $font-size-0;
   font-weight: 700;
   letter-spacing: 0.18em;

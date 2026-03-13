@@ -1,7 +1,7 @@
 {
   "name": "OX",
-  "tagline": "Dense signal. Zero softness. High neon.",
-  "description": "Original Hugo-native cyberpunk theme for blog, directories, and docs-lite publishing.",
+  "tagline": "Black signal. Neon index. Zero softness.",
+  "description": "Original Hugo-native dark index theme for directories, docs, and dispatches.",
   "supports": [
     "home",
     "list",

@@ -13,9 +13,9 @@ h3,
 h4,
 h5,
 h6 {
-  color: #d7d7d5;
+  color: #f3f3f3;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   line-height: $line-height-tight;
   text-transform: uppercase;
 }
@@ -34,26 +34,24 @@ th {
 
 a {
   color: var(--ox-link);
-  text-decoration-thickness: 0.06em;
-  text-underline-offset: 0.14em;
+  text-decoration: none;
   transition: color $transition-fast, background-color $transition-fast, border-color $transition-fast;
 }
 
 a:hover,
 a:focus-visible {
   color: var(--ox-link-hover);
-  text-shadow: none;
 }
 
 :focus-visible {
   outline: 1px solid var(--ox-focus-ring);
   outline-offset: 0.08rem;
-  box-shadow: var(--ox-focus-shadow);
+  box-shadow: none;
 }
 
 strong,
 th {
-  color: #d7d7d5;
+  color: #f3f3f3;
 }
 
 small,
@@ -69,6 +67,6 @@ samp {
 }
 
 ::selection {
-  background: rgba(234, 0, 217, 0.24);
+  background: rgba(255, 79, 216, 0.24);
   color: #fff;
 }

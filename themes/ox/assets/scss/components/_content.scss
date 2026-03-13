@@ -1,13 +1,12 @@
 .ox-page-head {
-  padding: $space-md $space-lg;
-  border-top: 1px solid var(--ox-border-subtle);
+  padding: $space-md 0;
   border-bottom: 1px solid var(--ox-border-subtle);
-  background: rgba(9, 24, 51, 0.28);
+  background: transparent;
 }
 
 .ox-content {
   max-width: var(--ox-content-width);
-  padding: $space-lg;
+  padding: $space-lg 0;
 }
 
 .ox-content > * + * {
@@ -26,9 +25,9 @@
 .ox-content blockquote,
 .ox-callout,
 .ox-shortcode-panel {
-  padding: $space-sm $space-md;
+  padding: $space-sm 0 $space-sm $space-md;
   border-left: 1px solid var(--ox-accent-primary);
-  background: rgba(11, 41, 86, 0.18);
+  background: transparent;
 }
 
 .ox-content table {
@@ -53,11 +52,10 @@
 
 .ox-badge {
   display: inline-block;
-  padding: 0.06rem 0.25rem;
+  padding: 0.04rem 0.2rem;
   border: 1px solid var(--ox-border-subtle);
-  border-radius: 0;
-  background: rgba(9, 24, 51, 0.75);
-  color: #d7d7d5;
+  background: transparent;
+  color: #f3f3f3;
   font-size: $font-size--1;
   text-decoration: none;
 }
@@ -76,8 +74,7 @@
 }
 
 .ox-route__name a {
-  color: #d7d7d5;
-  text-decoration: none;
+  color: #f3f3f3;
   text-transform: uppercase;
 }
 

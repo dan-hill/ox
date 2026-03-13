@@ -1,9 +1,9 @@
 .ox-toc {
   position: sticky;
-  top: 2.75rem;
-  padding: $space-md;
-  border: 1px solid var(--ox-border-subtle);
-  background: rgba(9, 24, 51, 0.28);
+  top: 2.5rem;
+  padding: $space-md 0;
+  border-top: 1px solid var(--ox-border-subtle);
+  background: transparent;
 }
 
 .ox-toc h2 {
