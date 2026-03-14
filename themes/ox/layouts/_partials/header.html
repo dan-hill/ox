@@ -1,9 +1,15 @@
 {{ $theme := hugo.Data.ox.theme }}
+{{ $mode := site.Params.ox.mode | default "landing" }}
 <header class="ox-header">
-  <div class="ox-header__inner ox-container">
-    <a class="ox-brand" href="{{ "/" | relURL }}">
-      {{ with $theme.name }}{{ . }}{{ else }}OX{{ end }}<span class="ox-brand__slash">//</span>{{ site.Title }}
-    </a>
-    {{ partial "nav.html" . }}
+  <div class="ox-container">
+    <div class="ox-header__strip" aria-label="Node status">
+      <span>SYS://{{ site.Title | upper }}</span>
+      <span>MODE://{{ $mode | upper }}</span>
+      <span>THEME://{{ with $theme.name }}{{ . | upper }}{{ else }}OX{{ end }}</span>
+    </div>
+    <div class="ox-header__inner">
+      <a class="ox-brand" href="{{ "/" | relURL }}">[ {{ with $theme.name }}{{ . | upper }}{{ else }}OX{{ end }}//{{ site.Title | upper }} ]</a>
+      {{ partial "nav.html" . }}
+    </div>
   </div>
 </header>

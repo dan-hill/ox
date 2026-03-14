@@ -1,19 +1,28 @@
 {{ define "main" }}
   {{ $pages := .RegularPagesRecursive.ByDate.Reverse }}
   <section class="asphalt-shell asphalt-shell--section">
-    <div class="asphalt-divider" aria-hidden="true"></div>
-    <header class="asphalt-block__head asphalt-block__head--page">
+    {{ partial "asphalt-sign.html" (printf "SECTION // %s" .Title) }}
+    <header class="asphalt-page-head">
       <h1>{{ .Title | upper }}</h1>
+      <p class="asphalt-status-line">PATH://{{ .RelPermalink }}  KIND://{{ .Kind | upper }}  ENTRIES://{{ len $pages }}</p>
     </header>
     {{ with .Content }}
-      <section class="asphalt-intro asphalt-prose">{{ . }}</section>
+      <section class="asphalt-block">
+        {{ partial "asphalt-sign.html" "brief" }}
+        <article class="asphalt-intro asphalt-prose">{{ . }}</article>
+      </section>
     {{ end }}
     {{ if gt (len $pages) 0 }}
-      <div class="asphalt-list">
-        {{ range $pages }}
-          {{ partial "asphalt-list-row.html" . }}
-        {{ end }}
-      </div>
+      <section class="asphalt-block">
+        {{ partial "asphalt-sign.html" "entries" }}
+        <div class="asphalt-list">
+          {{ range $pages }}
+            {{ partial "asphalt-list-row.html" . }}
+          {{ end }}
+        </div>
+      </section>
+    {{ else }}
+      <p class="asphalt-empty">NO ENTRIES INDEXED</p>
     {{ end }}
   </section>
 {{ end }}

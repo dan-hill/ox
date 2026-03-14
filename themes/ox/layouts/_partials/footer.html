@@ -1,6 +1,10 @@
 {{ $footerLine := partial "asphalt-param.html" (dict "key" "footer_line" "default" "PUBLISHED WITH HUGO // ORG -> OX-HUGO") }}
 <footer class="ox-footer">
-  <div class="ox-footer__inner ox-container">
-    <p class="asphalt-footer-line">{{ $footerLine }}</p>
+  <div class="ox-container">
+    {{ partial "asphalt-sign.html" "link closed" }}
+    <div class="ox-footer__inner">
+      <p class="asphalt-footer-line">{{ $footerLine }}</p>
+      <p class="asphalt-footer-meta">TX://COMPLETE // STATIC://YES // JS://NO</p>
+    </div>
   </div>
 </footer>

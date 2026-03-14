@@ -1,22 +1,29 @@
 {{ define "main" }}
   {{ $projectItems := partial "asphalt-project-items.html" .RegularPagesRecursive }}
   <section class="asphalt-shell asphalt-shell--projects">
-    <div class="asphalt-divider" aria-hidden="true"></div>
-    <header class="asphalt-block__head asphalt-block__head--page">
+    {{ partial "asphalt-sign.html" "project index" }}
+    <header class="asphalt-page-head">
       <h1>PROJECT INDEX</h1>
       <p class="asphalt-legend">[LIVE] SHIPPED   [WIP] BUILDING   [LAB] EXPERIMENTAL   [ARC] ARCHIVED</p>
+      <p class="asphalt-status-line">PATH://{{ .RelPermalink }}  COUNT://{{ len $projectItems }}  FORMAT://TEXT-FIRST</p>
     </header>
     {{ with .Content }}
-      <section class="asphalt-intro asphalt-prose">{{ . }}</section>
+      <section class="asphalt-block">
+        {{ partial "asphalt-sign.html" "operator note" }}
+        <article class="asphalt-intro asphalt-prose">{{ . }}</article>
+      </section>
     {{ end }}
-    {{ if gt (len $projectItems) 0 }}
-      <div class="asphalt-project-list asphalt-project-list--index">
-        {{ range $projectItems }}
-          {{ partial "asphalt-project-row.html" .page }}
-        {{ end }}
-      </div>
-    {{ else }}
-      <p class="asphalt-empty">NO PROJECTS INDEXED</p>
-    {{ end }}
+    <section class="asphalt-block">
+      {{ partial "asphalt-sign.html" "entries" }}
+      {{ if gt (len $projectItems) 0 }}
+        <div class="asphalt-project-list asphalt-project-list--index">
+          {{ range $projectItems }}
+            {{ partial "asphalt-project-row.html" .page }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <p class="asphalt-empty">NO PROJECTS INDEXED</p>
+      {{ end }}
+    </section>
   </section>
 {{ end }}

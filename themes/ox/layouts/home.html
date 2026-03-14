@@ -1,77 +1,96 @@
 {{ define "main" }}
   {{ $mode := site.Params.ox.mode | default "landing" }}
-  {{ $tagline := partial "asphalt-param.html" (dict "key" "tagline" "default" "SOFTWARE / SYSTEMS / TOOLS / LINKS") }}
+  {{ $tagline := partial "asphalt-param.html" (dict "key" "tagline" "default" "BBS / CRACKTRO / UNIX / CYBERDECK") }}
   {{ $masthead := partial "asphalt-param.html" (dict "key" "masthead_ascii" "default" (slice
-    "+------------------------------------------------------------------+"
-    "|  ASPHALT // INDEX                                                |"
-    "+------------------------------------------------------------------+"
+    `    ___   _____ ____  __  __    _    __    ____  __`
+    `   / _ | / ___// __ \/ / / /   / |  / /   /  _/ |/ /`
+    `  / __ |/ /__ / /_/ / /_/ /   /  |_/ /   _/ //    / `
+    ` /_/ |_|\___/ \____/\____/   /_/|___/   /___/_/|_/  `
+    ` [ BBS NODE // MANPAGE SURFACE // CYBERDECK DISPLAY ]`
   )) }}
-  {{ $compactMasthead := partial "asphalt-param.html" (dict "key" "masthead_ascii_compact" "default" (slice "[ ASPHALT // INDEX ]")) }}
+  {{ $compactMasthead := partial "asphalt-param.html" (dict "key" "masthead_ascii_compact" "default" (slice "[ ASPHALT//INDEX :: SIGNAL BOARD ]")) }}
   {{ $landingRoutes := partial "asphalt-param.html" (dict "key" "landing_routes" "default" (slice)) }}
   {{ $projectItems := partial "asphalt-project-items.html" (where site.RegularPages "Section" "projects") }}
   {{ $featuredItems := partial "asphalt-project-items.html" (where (where site.RegularPages "Section" "projects") "Params.featured" true) }}
+  {{ $modeLabel := cond (eq $mode "directory") "DIRECTORY NODE" "LANDING NODE" }}
 
   <section class="asphalt-shell asphalt-shell--home">
-    <div class="asphalt-divider" aria-hidden="true"></div>
+    {{ partial "asphalt-sign.html" (printf "%s // %s" site.Title $modeLabel) }}
     <header class="asphalt-masthead-block">
       <pre class="asphalt-masthead asphalt-masthead--full">{{ delimit $masthead "\n" }}</pre>
       <pre class="asphalt-masthead asphalt-masthead--compact">{{ delimit $compactMasthead "\n" }}</pre>
       <p class="asphalt-tagline">{{ $tagline }}</p>
+      <p class="asphalt-status-line">MODE://{{ $mode | upper }}  NODE://{{ site.Title | upper }}  FEED://{{ if .OutputFormats.Get "rss" }}ONLINE{{ else }}OFFLINE{{ end }}</p>
     </header>
 
     {{ if eq $mode "directory" }}
       {{ with $landingRoutes }}
         <section class="asphalt-block">
-          <header class="asphalt-block__head"><h2>ROUTES</h2></header>
+          {{ partial "asphalt-sign.html" "routes" }}
           <div class="asphalt-route-list">
-            {{ range . }}
-              <div class="asphalt-route-row">
-                <a class="asphalt-route-row__label" href="{{ .url }}">{{ .label }}</a>
-                {{ with .note }}<span class="asphalt-route-row__note">{{ . }}</span>{{ end }}
-              </div>
+            {{ range $i, $route := . }}
+              <article class="asphalt-route-row">
+                <p class="asphalt-route-row__line"><span class="asphalt-route-row__index">[{{ printf "%02d" (add $i 1) }}]</span><a class="asphalt-route-row__label" href="{{ $route.url }}">{{ $route.label | upper }}</a><span class="asphalt-route-row__path">{{ $route.url }}</span></p>
+                <p class="asphalt-route-row__note">{{ with $route.note }}{{ . }}{{ else }}DIRECT LINK{{ end }}</p>
+                <p class="asphalt-route-row__meta">$ open {{ $route.url }}</p>
+              </article>
             {{ end }}
           </div>
         </section>
       {{ end }}
       {{ with .Content }}
-        <article class="asphalt-prose asphalt-page-body">{{ . }}</article>
+        <section class="asphalt-block">
+          {{ partial "asphalt-sign.html" "manual" }}
+          <article class="asphalt-prose asphalt-page-body">{{ . }}</article>
+        </section>
       {{ end }}
     {{ else }}
       {{ with .Content }}
-        <section class="asphalt-intro asphalt-prose">{{ . }}</section>
+        <section class="asphalt-block">
+          {{ partial "asphalt-sign.html" "signal brief" }}
+          <article class="asphalt-intro asphalt-prose">{{ . }}</article>
+        </section>
       {{ end }}
 
       <section class="asphalt-block">
-        <header class="asphalt-block__head"><h2>ROUTES</h2></header>
+        {{ partial "asphalt-sign.html" "routes" }}
         <div class="asphalt-route-list">
           {{ if gt (len $landingRoutes) 0 }}
-            {{ range $landingRoutes }}
-              <div class="asphalt-route-row">
-                <a class="asphalt-route-row__label" href="{{ .url }}">{{ .label }}</a>
-                {{ with .note }}<span class="asphalt-route-row__note">{{ . }}</span>{{ end }}
-              </div>
+            {{ range $i, $route := $landingRoutes }}
+              <article class="asphalt-route-row">
+                <p class="asphalt-route-row__line"><span class="asphalt-route-row__index">[{{ printf "%02d" (add $i 1) }}]</span><a class="asphalt-route-row__label" href="{{ $route.url }}">{{ $route.label | upper }}</a><span class="asphalt-route-row__path">{{ $route.url }}</span></p>
+                <p class="asphalt-route-row__note">{{ with $route.note }}{{ . }}{{ else }}DIRECT LINK{{ end }}</p>
+                <p class="asphalt-route-row__meta">$ open {{ $route.url }}</p>
+              </article>
             {{ end }}
           {{ else }}
-            <div class="asphalt-route-row">
-              <a class="asphalt-route-row__label" href="{{ "/projects/" | relURL }}">PROJECT INDEX</a>
-            </div>
+            <article class="asphalt-route-row">
+              <p class="asphalt-route-row__line"><span class="asphalt-route-row__index">[01]</span><a class="asphalt-route-row__label" href="{{ "/projects/" | relURL }}">PROJECT INDEX</a><span class="asphalt-route-row__path">/projects/</span></p>
+              <p class="asphalt-route-row__note">PRIMARY SWITCHBOARD FOR SHIPPED / BUILDING / LAB / ARCHIVE WORK.</p>
+              <p class="asphalt-route-row__meta">$ open /projects/</p>
+            </article>
             {{ with .OutputFormats.Get "rss" }}
-              <div class="asphalt-route-row">
-                <a class="asphalt-route-row__label" href="{{ .RelPermalink }}">RSS</a>
-              </div>
+              <article class="asphalt-route-row">
+                <p class="asphalt-route-row__line"><span class="asphalt-route-row__index">[02]</span><a class="asphalt-route-row__label" href="{{ .RelPermalink }}">RSS FEED</a><span class="asphalt-route-row__path">{{ .RelPermalink }}</span></p>
+                <p class="asphalt-route-row__note">MACHINE-READABLE SIGNAL FOR WATCHERS, AGGREGATORS, AND TERMINAL CLIENTS.</p>
+                <p class="asphalt-route-row__meta">$ open {{ .RelPermalink }}</p>
+              </article>
             {{ end }}
-            {{ range first 3 $featuredItems }}
-              {{ $page := .page }}
-              <div class="asphalt-route-row">
-                <a class="asphalt-route-row__label" href="{{ partial "asphalt-primary-url.html" $page }}">{{ $page.LinkTitle | upper }}</a>
-              </div>
+            {{ range $i, $item := first 3 $featuredItems }}
+              {{ $page := $item.page }}
+              {{ $primary := partial "asphalt-primary-url.html" $page }}
+              <article class="asphalt-route-row">
+                <p class="asphalt-route-row__line"><span class="asphalt-route-row__index">[{{ printf "%02d" (add $i 3) }}]</span><a class="asphalt-route-row__label" href="{{ $primary }}">{{ $page.LinkTitle | upper }}</a><span class="asphalt-route-row__path">{{ $primary }}</span></p>
+                <p class="asphalt-route-row__note">{{ partial "asphalt-summary.html" $page }}</p>
+                <p class="asphalt-route-row__meta">$ open {{ $primary }}</p>
+              </article>
             {{ end }}
           {{ end }}
         </div>
       </section>
 
       <section class="asphalt-block">
-        <header class="asphalt-block__head"><h2>FEATURED</h2></header>
+        {{ partial "asphalt-sign.html" "featured projects" }}
         {{ if gt (len $featuredItems) 0 }}
           <div class="asphalt-project-list">
             {{ range $featuredItems }}

@@ -1,9 +1,9 @@
 {{ $primaryURL := partial "asphalt-primary-url.html" . }}
 <article class="asphalt-list-row">
   <p class="asphalt-list-row__line">
-    {{ if not .Date.IsZero }}<span class="asphalt-list-row__date">{{ .Date.Format "2006-01-02" }}</span> {{ end }}
+    {{ if not .Date.IsZero }}<span class="asphalt-list-row__date">[{{ .Date.Format "2006-01-02" }}]</span>{{ end }}
     <a class="asphalt-list-row__title" href="{{ $primaryURL }}">{{ .LinkTitle | upper }}</a>
   </p>
   <p class="asphalt-list-row__summary">{{ partial "asphalt-summary.html" . }}</p>
-  <p class="asphalt-list-row__meta"><a href="{{ $primaryURL }}">open</a></p>
+  <p class="asphalt-list-row__meta">$ open {{ $primaryURL }}</p>
 </article>

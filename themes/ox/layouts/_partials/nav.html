@@ -2,12 +2,12 @@
   <ul>
     {{ if site.Menus.main }}
       {{ range site.Menus.main }}
-        <li><a href="{{ .URL }}" {{ if or ($.IsMenuCurrent .Menu .) ($.HasMenuCurrent .Menu .) }}aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        <li><a href="{{ .URL }}" {{ if or ($.IsMenuCurrent .Menu .) ($.HasMenuCurrent .Menu .) }}aria-current="page"{{ end }}><span class="ox-nav__prompt" aria-hidden="true">::</span>{{ .Name }}</a></li>
       {{ end }}
     {{ else }}
-      <li><a href="{{ "/" | relURL }}">Home</a></li>
-      <li><a href="{{ "/posts/" | relURL }}">Posts</a></li>
-      <li><a href="{{ "/tags/" | relURL }}">Tags</a></li>
+      <li><a href="{{ "/" | relURL }}"><span class="ox-nav__prompt" aria-hidden="true">::</span>Home</a></li>
+      <li><a href="{{ "/posts/" | relURL }}"><span class="ox-nav__prompt" aria-hidden="true">::</span>Posts</a></li>
+      <li><a href="{{ "/tags/" | relURL }}"><span class="ox-nav__prompt" aria-hidden="true">::</span>Tags</a></li>
     {{ end }}
   </ul>
 </nav>

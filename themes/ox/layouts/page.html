@@ -1,10 +1,14 @@
 {{ define "main" }}
   <section class="asphalt-shell asphalt-shell--page">
-    <div class="asphalt-divider" aria-hidden="true"></div>
-    <header class="asphalt-block__head asphalt-block__head--page">
+    {{ partial "asphalt-sign.html" (printf "PAGE // %s" .Title) }}
+    <header class="asphalt-page-head">
       <h1>{{ .Title | upper }}</h1>
+      <p class="asphalt-status-line">PATH://{{ .RelPermalink }}  KIND://{{ .Kind | upper }}{{ with .Section }}  SECTION://{{ . | upper }}{{ end }}</p>
       {{ with partial "asphalt-summary.html" . }}<p class="asphalt-page-kicker">{{ . }}</p>{{ end }}
     </header>
-    <article class="asphalt-prose asphalt-page-body">{{ .Content }}</article>
+    <section class="asphalt-block">
+      {{ partial "asphalt-sign.html" "body" }}
+      <article class="asphalt-prose asphalt-page-body">{{ .Content }}</article>
+    </section>
   </section>
 {{ end }}

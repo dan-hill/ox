@@ -11,16 +11,18 @@
     {{ $year = printf "%d" .Date.Year }}
   {{ end }}
 {{ end }}
+{{ $primary := partial "asphalt-primary-url.html" . }}
 <article class="asphalt-project-row">
   <p class="asphalt-project-row__line">
-    <span class="asphalt-chip asphalt-chip--status">[{{ $status }}]</span><span class="asphalt-chip">[{{ $kind }}]</span>
+    <span class="asphalt-chip asphalt-chip--status">[{{ $status }}]</span>
+    <span class="asphalt-chip">[{{ $kind }}]</span>
     <span class="asphalt-project-row__year">{{ $year }}</span>
     {{ with .Params.ascii }}<span class="asphalt-project-row__ascii">{{ . }}</span>{{ end }}
-    <a class="asphalt-project-row__title" href="{{ partial "asphalt-primary-url.html" . }}">{{ .LinkTitle | upper }}</a>
+    <a class="asphalt-project-row__title" href="{{ $primary }}">{{ .LinkTitle | upper }}</a>
   </p>
   <p class="asphalt-project-row__summary">{{ partial "asphalt-summary.html" . }}</p>
   <p class="asphalt-project-row__meta">
-    <span class="asphalt-link-strip"><a href="{{ partial "asphalt-primary-url.html" . }}">open</a></span>
+    <span class="asphalt-link-strip"><a href="{{ $primary }}">open</a></span>
     {{ with .Params.source_url }}<span class="asphalt-link-strip"><a href="{{ . }}">source</a></span>{{ end }}
     {{ with .Params.notes_url }}<span class="asphalt-link-strip"><a href="{{ . }}">notes</a></span>{{ end }}
   </p>

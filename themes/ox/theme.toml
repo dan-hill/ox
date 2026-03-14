@@ -1,9 +1,9 @@
 name = 'OX'
-description = 'Shared typography-first Hugo theme for landing and directory sites using the ASPHALT//INDEX presentation system.'
+description = 'Shared BBS / manpage / cyberdeck Hugo theme for landing and directory sites.'
 min_version = '0.146.0'
 demo = 'exampleSite'
-tags = ['monospace', 'landing', 'directory', 'projects', 'docs']
-features = ['landing mode', 'directory mode', 'dense lists', 'project index', 'page and single templates', 'shortcodes']
+tags = ['ascii', 'bbs', 'monospace', 'cyberdeck', 'docs']
+features = ['landing mode', 'directory mode', 'dense text rows', 'project index', 'page and single templates', 'shortcodes']
 
 [author]
   name = 'Augment Agent'
