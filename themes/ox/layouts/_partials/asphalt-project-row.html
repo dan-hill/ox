@@ -1,0 +1,27 @@
+{{ $statusMap := dict "live" "LIVE" "wip" "WIP" "lab" "LAB" "arc" "ARC" }}
+{{ $kindMap := dict "app" "APP" "lib" "LIB" "tool" "TOOL" "sys" "SYS" "note" "NOTE" }}
+{{ $status := index $statusMap (.Params.status | default "") | default "----" }}
+{{ $projectKind := .Params.project_kind | default (.Params.kind | default "") }}
+{{ $kind := index $kindMap $projectKind | default "----" }}
+{{ $year := "----" }}
+{{ with .Params.year }}
+  {{ $year = printf "%v" . }}
+{{ else }}
+  {{ if not .Date.IsZero }}
+    {{ $year = printf "%d" .Date.Year }}
+  {{ end }}
+{{ end }}
+<article class="asphalt-project-row">
+  <p class="asphalt-project-row__line">
+    <span class="asphalt-chip asphalt-chip--status">[{{ $status }}]</span><span class="asphalt-chip">[{{ $kind }}]</span>
+    <span class="asphalt-project-row__year">{{ $year }}</span>
+    {{ with .Params.ascii }}<span class="asphalt-project-row__ascii">{{ . }}</span>{{ end }}
+    <a class="asphalt-project-row__title" href="{{ partial "asphalt-primary-url.html" . }}">{{ .LinkTitle | upper }}</a>
+  </p>
+  <p class="asphalt-project-row__summary">{{ partial "asphalt-summary.html" . }}</p>
+  <p class="asphalt-project-row__meta">
+    <span class="asphalt-link-strip"><a href="{{ partial "asphalt-primary-url.html" . }}">open</a></span>
+    {{ with .Params.source_url }}<span class="asphalt-link-strip"><a href="{{ . }}">source</a></span>{{ end }}
+    {{ with .Params.notes_url }}<span class="asphalt-link-strip"><a href="{{ . }}">notes</a></span>{{ end }}
+  </p>
+</article>

@@ -1,7 +1,6 @@
-{{ $theme := hugo.Data.ox.theme }}
+{{ $footerLine := partial "asphalt-param.html" (dict "key" "footer_line" "default" "PUBLISHED WITH HUGO // ORG -> OX-HUGO") }}
 <footer class="ox-footer">
   <div class="ox-footer__inner ox-container">
-    <p>{{ with $theme.name }}{{ . }}{{ else }}OX{{ end }} // {{ with $theme.tagline }}{{ . }}{{ else }}Black signal. Neon index. Zero softness.{{ end }}</p>
-    <p>Static-first. Minimal JS. Remote module chain live.</p>
+    <p class="asphalt-footer-line">{{ $footerLine }}</p>
   </div>
 </footer>

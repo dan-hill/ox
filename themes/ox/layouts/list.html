@@ -1,10 +1,19 @@
 {{ define "main" }}
-  {{ partial "page-header.html" . }}
-  {{ with .Content }}
-    <section class="ox-bulletin ox-content">{{ . }}</section>
-  {{ end }}
-  {{ $pages := .Pages.ByTitle }}
-  {{ $paginator := .Paginate $pages 18 }}
-  {{ partial "card-grid.html" (dict "pages" $paginator.Pages) }}
-  {{ partial "pagination.html" (dict "paginator" $paginator) }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  <section class="asphalt-shell asphalt-shell--list">
+    <div class="asphalt-divider" aria-hidden="true"></div>
+    <header class="asphalt-block__head asphalt-block__head--page">
+      <h1>{{ .Title | upper }}</h1>
+    </header>
+    {{ with .Content }}
+      <section class="asphalt-intro asphalt-prose">{{ . }}</section>
+    {{ end }}
+    {{ if gt (len $pages) 0 }}
+      <div class="asphalt-list">
+        {{ range $pages }}
+          {{ partial "asphalt-list-row.html" . }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
 {{ end }}

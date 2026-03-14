@@ -1,18 +1,87 @@
 {{ define "main" }}
-  {{ partial "hero.html" . }}
+  {{ $mode := site.Params.ox.mode | default "landing" }}
+  {{ $tagline := partial "asphalt-param.html" (dict "key" "tagline" "default" "SOFTWARE / SYSTEMS / TOOLS / LINKS") }}
+  {{ $masthead := partial "asphalt-param.html" (dict "key" "masthead_ascii" "default" (slice
+    "+------------------------------------------------------------------+"
+    "|  ASPHALT // INDEX                                                |"
+    "+------------------------------------------------------------------+"
+  )) }}
+  {{ $compactMasthead := partial "asphalt-param.html" (dict "key" "masthead_ascii_compact" "default" (slice "[ ASPHALT // INDEX ]")) }}
+  {{ $landingRoutes := partial "asphalt-param.html" (dict "key" "landing_routes" "default" (slice)) }}
+  {{ $projectItems := partial "asphalt-project-items.html" (where site.RegularPages "Section" "projects") }}
+  {{ $featuredItems := partial "asphalt-project-items.html" (where (where site.RegularPages "Section" "projects") "Params.featured" true) }}
 
-  {{ with .Content }}
-    <section class="ox-bulletin ox-content">{{ . }}</section>
-  {{ end }}
+  <section class="asphalt-shell asphalt-shell--home">
+    <div class="asphalt-divider" aria-hidden="true"></div>
+    <header class="asphalt-masthead-block">
+      <pre class="asphalt-masthead asphalt-masthead--full">{{ delimit $masthead "\n" }}</pre>
+      <pre class="asphalt-masthead asphalt-masthead--compact">{{ delimit $compactMasthead "\n" }}</pre>
+      <p class="asphalt-tagline">{{ $tagline }}</p>
+    </header>
 
-  {{ $mode := site.Params.ox.mode | default "stream" }}
-  {{ if eq $mode "landing" }}
-    {{ partial "card-grid.html" (dict "title" "Routes" "description" "Primary exits from this node." "pages" slice) }}
-    {{ partial "menu-routes.html" . }}
-    {{ partial "card-grid.html" (dict "title" "Local dispatches" "description" "Pages and notes currently in this repo." "pages" .Site.RegularPages.ByDate.Reverse) }}
-  {{ else if eq $mode "directory" }}
-    {{ partial "card-grid.html" (dict "title" "Directory" "description" "Living notes, guides, and project records." "pages" .Site.RegularPages.ByLinkTitle) }}
-  {{ else }}
-    {{ partial "card-grid.html" (dict "title" "Recent transmissions" "description" "Latest pages and notes." "pages" (first 12 .Site.RegularPages.ByDate.Reverse)) }}
-  {{ end }}
+    {{ if eq $mode "directory" }}
+      {{ with $landingRoutes }}
+        <section class="asphalt-block">
+          <header class="asphalt-block__head"><h2>ROUTES</h2></header>
+          <div class="asphalt-route-list">
+            {{ range . }}
+              <div class="asphalt-route-row">
+                <a class="asphalt-route-row__label" href="{{ .url }}">{{ .label }}</a>
+                {{ with .note }}<span class="asphalt-route-row__note">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+      {{ with .Content }}
+        <article class="asphalt-prose asphalt-page-body">{{ . }}</article>
+      {{ end }}
+    {{ else }}
+      {{ with .Content }}
+        <section class="asphalt-intro asphalt-prose">{{ . }}</section>
+      {{ end }}
+
+      <section class="asphalt-block">
+        <header class="asphalt-block__head"><h2>ROUTES</h2></header>
+        <div class="asphalt-route-list">
+          {{ if gt (len $landingRoutes) 0 }}
+            {{ range $landingRoutes }}
+              <div class="asphalt-route-row">
+                <a class="asphalt-route-row__label" href="{{ .url }}">{{ .label }}</a>
+                {{ with .note }}<span class="asphalt-route-row__note">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+          {{ else }}
+            <div class="asphalt-route-row">
+              <a class="asphalt-route-row__label" href="{{ "/projects/" | relURL }}">PROJECT INDEX</a>
+            </div>
+            {{ with .OutputFormats.Get "rss" }}
+              <div class="asphalt-route-row">
+                <a class="asphalt-route-row__label" href="{{ .RelPermalink }}">RSS</a>
+              </div>
+            {{ end }}
+            {{ range first 3 $featuredItems }}
+              {{ $page := .page }}
+              <div class="asphalt-route-row">
+                <a class="asphalt-route-row__label" href="{{ partial "asphalt-primary-url.html" $page }}">{{ $page.LinkTitle | upper }}</a>
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="asphalt-block">
+        <header class="asphalt-block__head"><h2>FEATURED</h2></header>
+        {{ if gt (len $featuredItems) 0 }}
+          <div class="asphalt-project-list">
+            {{ range $featuredItems }}
+              {{ partial "asphalt-project-row.html" .page }}
+            {{ end }}
+          </div>
+        {{ else }}
+          <p class="asphalt-empty">NO FEATURED PROJECTS INDEXED</p>
+        {{ end }}
+      </section>
+    {{ end }}
+  </section>
 {{ end }}

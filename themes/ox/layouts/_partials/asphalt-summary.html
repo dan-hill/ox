@@ -1,0 +1,18 @@
+{{ $summary := "" }}
+{{ with .Params.summary }}
+  {{ $summary = . }}
+{{ else }}
+  {{ with .Description }}
+    {{ $summary = . }}
+  {{ else }}
+    {{ $plain := replaceRE "[[:space:]]+" " " (.Plain | default "") }}
+    {{ $plain = replaceRE "^[[:space:]]+|[[:space:]]+$" "" $plain }}
+    {{ if gt (len $plain) 0 }}
+      {{ $summary = truncate 120 $plain }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if eq (len $summary) 0 }}
+  {{ $summary = "NO SUMMARY" }}
+{{ end }}
+{{ return $summary }}

@@ -1,0 +1,18 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Set "value" .default }}
+{{ $scratch.Set "found" false }}
+{{ with site.Params.ox }}
+  {{ if isset . $.key }}
+    {{ $scratch.Set "value" (index . $.key) }}
+    {{ $scratch.Set "found" true }}
+  {{ end }}
+{{ end }}
+{{ if not ($scratch.Get "found") }}
+  {{ with site.Params }}
+    {{ if isset . $.key }}
+      {{ $scratch.Set "value" (index . $.key) }}
+      {{ $scratch.Set "found" true }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return ($scratch.Get "value") }}

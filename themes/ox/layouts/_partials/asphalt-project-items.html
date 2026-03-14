@@ -1,0 +1,12 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Set "items" (slice) }}
+{{ range . }}
+  {{ $weight := 99999 }}
+  {{ if isset .Params "weight" }}{{ $weight = index .Params "weight" }}{{ end }}
+  {{ $dateKey := 9999999999 }}
+  {{ if not .Date.IsZero }}{{ $dateKey = sub 9999999999 .Date.Unix }}{{ end }}
+  {{ $titleKey := lower .Title }}
+  {{ $sortKey := printf "%05d|%010d|%s" $weight $dateKey $titleKey }}
+  {{ $scratch.Add "items" (slice (dict "key" $sortKey "page" .)) }}
+{{ end }}
+{{ return sort ($scratch.Get "items") "key" }}
